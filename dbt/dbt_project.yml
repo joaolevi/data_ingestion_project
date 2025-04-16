@@ -1,0 +1,17 @@
+# dbt_project.yml
+name: 'imdb_analytics'
+version: '1.0'
+config-version: 2
+
+profile: 'imdb_postgres'
+
+target-path: 'target'
+clean-targets:
+  - 'target'
+  - 'dbt_modules'
+
+model-paths: ['models']
+
+models:
+  imdb_analytics:
+    +materialized: view

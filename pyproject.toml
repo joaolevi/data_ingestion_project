@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "desafio-serrabits"
+version = "0.1.0"
+description = "This is a ETL process"
+authors = ["Joao Levi <joaolevi777@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.2.3"
+sqlalchemy = "^2.0.40"
+httpx = "^0.28.1"
+psycopg2-binary = "^2.9.10"
+tqdm = "^4.67.1"
+requests = "^2.32.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

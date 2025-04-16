@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: serra_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: serrabits
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - imdb_data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  jupyter:
+    image: jupyter/scipy-notebook
+    container_name: serra_jupyter
+    restart: always
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+
+  dbt:
+    build:
+      context: ./dbt
+    container_name: serra_dbt
+    volumes:
+      - ./dbt:/usr/app
+    working_dir: /usr/app
+    environment:
+      DBT_PROFILES_DIR: /usr/app
+    depends_on:
+      - postgres
+    entrypoint: ["tail", "-f", "/dev/null"]
+
+  elt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: serra_elt
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./entrypoint.sh:/app/entrypoint.sh
+      - ./pyproject.toml:/app/pyproject.toml
+      - ./poetry.lock:/app/poetry.lock
+    depends_on:
+      - postgres
+
+volumes:
+  imdb_data:

@@ -1,0 +1,6 @@
+-- init.sql
+\c imdb;
+
+CREATE SCHEMA IF NOT EXISTS imdb;
+
+GRANT ALL PRIVILEGES ON DATABASE imdb TO user;
