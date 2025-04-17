@@ -1,5 +1,5 @@
 -- init.sql
-\c imdb;
+\c serrabits;
 
 CREATE SCHEMA IF NOT EXISTS imdb;
 

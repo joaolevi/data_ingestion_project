@@ -46,7 +46,7 @@ services:
     container_name: serra_elt
     volumes:
       - ./src:/app/src
-      - ./data:/app/data
+      - ./data:/app/imdb_data
       - ./entrypoint.sh:/app/entrypoint.sh
       - ./pyproject.toml:/app/pyproject.toml
       - ./poetry.lock:/app/poetry.lock

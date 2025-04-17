@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: imdb
+    description: "IMDB data source"
+    database: serrabits
+    schema: imdb
+    tables:
+      - name: movies
+        description: "Movies table"
+        columns:
+          - name: movie_id
+            description: "Unique identifier for each movie"
+          - name: title
+            description: "Title of the movie"
+          - name: release_year
+            description: "Year the movie was released"
+          - name: genre
+            description: "Genre of the movie"
+          - name: rating
+            description: "IMDB rating of the movie"
