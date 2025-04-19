@@ -1,9 +1,8 @@
-# dbt_project.yml
 name: 'imdb_analytics'
 version: '1.0'
 config-version: 2
 
-profile: 'imdb_postgres'
+profile: 'default'
 
 target-path: 'target'
 clean-targets:
@@ -11,6 +10,10 @@ clean-targets:
   - 'dbt_modules'
 
 model-paths: ['models']
+analysis-paths: ["analyses"]
+test-paths: ['tests']
+macro-paths: ['macros']
+snapshot-paths: ['snapshots']
 
 models:
   imdb_analytics:

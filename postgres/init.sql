@@ -1,6 +1,4 @@
 -- init.sql
 \c serrabits;
 
-CREATE SCHEMA IF NOT EXISTS imdb;
-
-GRANT ALL PRIVILEGES ON DATABASE imdb TO user;
+GRANT ALL PRIVILEGES ON DATABASE public TO user;

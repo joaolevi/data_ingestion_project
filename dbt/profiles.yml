@@ -1,13 +1,12 @@
-# profiles.yml
-postgres:
+default:
   target: dev
   outputs:
     dev:
       type: postgres
+      threads: 1
       host: postgres
-      user: user
-      password: pass
       port: 5432
+      user: user
+      pass: pass
       dbname: serrabits
-      schema: imdb
-      threads: 2
+      schema: public
