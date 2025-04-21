@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: imdb
     description: "IMDB data source"
-    database: serrabits
+    database: postgres
     schema: public
     tables:
       - name: TB_NAME_BASICS

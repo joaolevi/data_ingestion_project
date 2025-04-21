@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "desafio-serrabits"
+name = "data_ingestion_project"
 version = "0.1.0"
 description = "This is a ETL process"
 authors = ["Joao Levi <joaolevi777@gmail.com>"]

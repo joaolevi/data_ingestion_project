@@ -3,10 +3,10 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15
-    container_name: serra_postgres
+    container_name: container_postgres
     restart: always
     environment:
-      POSTGRES_DB: serrabits
+      POSTGRES_DB: postgres
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass
     ports:
@@ -17,7 +17,7 @@ services:
 
   jupyter:
     image: jupyter/scipy-notebook
-    container_name: serra_jupyter
+    container_name: container_jupyter
     restart: always
     ports:
       - "8888:8888"
@@ -29,7 +29,7 @@ services:
   dbt:
     build:
       context: ./dbt
-    container_name: serra_dbt
+    container_name: container_dbt
     volumes:
       - ./dbt:/usr/app
     working_dir: /usr/app
@@ -43,7 +43,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: serra_elt
+    container_name: container_elt
     volumes:
       - ./src:/app/src
       - ./data:/app/imdb_data

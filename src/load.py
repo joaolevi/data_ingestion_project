@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 load_dotenv()
 
 
-DB_URL = os.getenv("DB_URL", "postgresql://user:pass@postgres:5432/serrabits")
+DB_URL = os.getenv("DB_URL", "postgresql://user:pass@postgres:5432/postgres")
 DATA_DIR = os.getenv("DATA_DIR", "imdb_data")
 engine = sqlalchemy.create_engine(DB_URL)
 
